@@ -1,4 +1,4 @@
-package paths
+package stdpaths
 
 // Desktop returns the user's desktop directory.
 func Desktop() string {

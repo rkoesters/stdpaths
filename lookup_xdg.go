@@ -1,6 +1,6 @@
 // +build freebsd linux netbsd openbsd
 
-package paths
+package stdpaths
 
 import (
 	"os"
