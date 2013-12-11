@@ -1,5 +1,0 @@
-Platform Support
----------------
-
-For now, lets focus on linux (*_xdg.go), Mac OS X (*_darwin.go), and
-Windows (*_windows.go). In that order.
