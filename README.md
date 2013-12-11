@@ -2,7 +2,8 @@ stdpaths
 ========
 
 Package stdpaths allows easy lookup of system dependent paths in a cross
-platform way.
+platform way. Documentation is avaible via godoc. [Click here to view
+online](http://godoc.org/github.com/rkoesters/stdpaths).
 
 Platform Support
 ----------------
