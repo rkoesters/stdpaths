@@ -41,14 +41,6 @@ func lookupUserRuntime() string {
 	return UserCache()
 }
 
-func lookupSystemDirs(env, dflt string) []string {
-	dirs := os.Getenv(env)
-	if len(dirs) == 0 {
-		dirs = dflt
-	}
-	return filepath.SplitList(dirs)
-}
-
 func lookupSystemConfig() []string {
 	dirs := os.Getenv("XDG_CONFIG_DIRS")
 	if len(dirs) != 0 {
