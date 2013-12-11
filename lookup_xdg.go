@@ -9,24 +9,28 @@ import (
 
 const homeEnvVar = "HOME"
 
-func lookupUserDir(env, dflt string) string {
-	dir := os.Getenv(env)
+func lookupUserCache() string {
+	dir := os.Getenv("XDG_CACHE_HOME")
 	if len(dir) != 0 {
 		return dir
 	}
-	return filepath.Join(Home(), dflt)
-}
-
-func lookupUserCache() string {
-	return lookupUserDir("XDG_CACHE_HOME", ".cache")
+	return filepath.Join(Home(), ".cache")
 }
 
 func lookupUserConfig() string {
-	return lookupUserDir("XDG_CONFIG_HOME", ".config")
+	dir := os.Getenv("XDG_CONFIG_HOME")
+	if len(dir) != 0 {
+		return dir
+	}
+	return filepath.Join(Home(), ".config")
 }
 
 func lookupUserData() string {
-	return lookupUserDir("XDG_DATA_HOME", ".local/share")
+	dir := os.Getenv("XDG_DATA_HOME")
+	if len(dir) != 0 {
+		return dir
+	}
+	return filepath.Join(Home(), ".local", "share")
 }
 
 func lookupUserRuntime() string {
@@ -46,9 +50,17 @@ func lookupSystemDirs(env, dflt string) []string {
 }
 
 func lookupSystemConfig() []string {
-	return lookupSystemDirs("XDG_CONFIG_DIRS", "/etc/xdg")
+	dirs := os.Getenv("XDG_CONFIG_DIRS")
+	if len(dirs) != 0 {
+		return filepath.SplitList(dirs)
+	}
+	return []string{"/etc/xdg"}
 }
 
 func lookupSystemData() []string {
-	return lookupSystemDirs("XDG_DATA_DIRS", "/usr/local/share/:/usr/share/")
+	dirs := os.Getenv("XDG_DATA_DIRS")
+	if len(dirs) != 0 {
+		return filepath.SplitList(dirs)
+	}
+	return []string{"/usr/local/share", "/usr/share"}
 }
