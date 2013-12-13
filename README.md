@@ -2,8 +2,12 @@ stdpaths
 ========
 
 Package stdpaths allows easy lookup of system dependent paths in a cross
-platform way. Documentation is avaible via godoc. [Click here to view
-online](http://godoc.org/github.com/rkoesters/stdpaths).
+platform way.i [Click here for
+documentation](http://godoc.org/github.com/rkoesters/stdpaths).
+
+Package userdirs provides an easy way to get common user directories.
+[Click here for
+documentation](http://godoc.org/github.com/rkoesters/stdpaths/userdirs).
 
 Platform Support
 ----------------
