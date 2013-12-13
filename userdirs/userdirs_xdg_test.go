@@ -16,50 +16,42 @@ func XdgUserDir(s string) string {
 	return strings.TrimSpace(string(out))
 }
 
-func TestDesktop(t *testing.T) {
-	if Desktop() != XdgUserDir("DESKTOP") {
-		t.Error(Desktop())
+func doTest(t *testing.T, s1, s2 string) {
+	t.Log(s1)
+	t.Log(s2)
+	if s1 != s2 {
+		t.Fail()
 	}
+}
+
+func TestDesktop(t *testing.T) {
+	doTest(t, Desktop(), XdgUserDir("DESKTOP"))
 }
 
 func TestDocuments(t *testing.T) {
-	if Documents() != XdgUserDir("DOCUMENTS") {
-		t.Error(Documents())
-	}
+	doTest(t, Documents(), XdgUserDir("DOCUMENTS"))
 }
 
 func TestDownload(t *testing.T) {
-	if Download() != XdgUserDir("DOWNLOAD") {
-		t.Error(Download())
-	}
+	doTest(t, Download(), XdgUserDir("DOWNLOAD"))
 }
 
 func TestMusic(t *testing.T) {
-	if Music() != XdgUserDir("MUSIC") {
-		t.Error(Music())
-	}
+	doTest(t, Music(), XdgUserDir("MUSIC"))
 }
 
 func TestPictures(t *testing.T) {
-	if Pictures() != XdgUserDir("PICTURES") {
-		t.Error(Pictures())
-	}
+	doTest(t, Pictures(), XdgUserDir("PICTURES"))
 }
 
 func TestPublic(t *testing.T) {
-	if Public() != XdgUserDir("PUBLICSHARE") {
-		t.Error(Public())
-	}
+	doTest(t, Public(), XdgUserDir("PUBLICSHARE"))
 }
 
 func TestTemplates(t *testing.T) {
-	if Templates() != XdgUserDir("TEMPLATES") {
-		t.Error(Templates())
-	}
+	doTest(t, Templates(), XdgUserDir("TEMPLATES"))
 }
 
 func TestVideos(t *testing.T) {
-	if Videos() != XdgUserDir("VIDEOS") {
-		t.Error(Videos())
-	}
+	doTest(t, Videos(), XdgUserDir("VIDEOS"))
 }
