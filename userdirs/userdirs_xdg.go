@@ -1,20 +1,22 @@
 // +build freebsd linux netbsd openbsd
 
-package stdpaths
+package userdirs
 
 import (
 	"bufio"
+	"github.com/rkoesters/stdpaths"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
 func initPersonalDirs() {
-	if cache.PersonalDirsLoaded {
+	if cache != nil {
 		return
 	}
+	cache = new(userDirs)
 
-	f, err := os.Open(filepath.Join(UserConfig(), "user-dirs.dirs"))
+	f, err := os.Open(filepath.Join(stdpaths.UserConfig(), "user-dirs.dirs"))
 	if err != nil {
 		return
 	}
@@ -45,13 +47,12 @@ func initPersonalDirs() {
 	if sc.Err() != nil {
 		return
 	}
-	cache.PersonalDirsLoaded = true
 }
 
 func clean(s string) string {
 	s = strings.Trim(s, " \t\"")
 	if strings.HasPrefix(s, "$HOME") {
-		s = filepath.Join(Home(), strings.TrimPrefix(s, "$HOME"))
+		s = filepath.Join(stdpaths.Home(), strings.TrimPrefix(s, "$HOME"))
 	}
 	return s
 }

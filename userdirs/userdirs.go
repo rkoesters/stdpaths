@@ -1,4 +1,17 @@
-package stdpaths
+package userdirs
+
+type userDirs struct {
+	Desktop   string
+	Documents string
+	Download  string
+	Music     string
+	Pictures  string
+	Public    string
+	Templates string
+	Videos    string
+}
+
+var cache *userDirs
 
 // Desktop returns the user's desktop directory.
 func Desktop() string {

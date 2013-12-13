@@ -1,6 +1,6 @@
 // +build freebsd linux netbsd openbsd
 
-package stdpaths
+package userdirs
 
 import (
 	"os/exec"

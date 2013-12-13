@@ -17,17 +17,6 @@ type lookupCache struct {
 
 	SystemConfig []string
 	SystemData   []string
-
-	PersonalDirsLoaded bool // whether the dirs below have been loaded.
-
-	Desktop   string
-	Documents string
-	Download  string
-	Music     string
-	Pictures  string
-	Public    string
-	Templates string
-	Videos    string
 }
 
 var cache = new(lookupCache)
