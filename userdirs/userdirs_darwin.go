@@ -6,11 +6,6 @@ import (
 )
 
 func init() {
-	if dirs != nil {
-		return
-	}
-	dirs = new(userDirs)
-
 	dirs.Desktop = filepath.Join(stdpaths.Home(), "Desktop")
 	dirs.Documents = filepath.Join(stdpaths.Home(), "Documents")
 	dirs.Download = filepath.Join(stdpaths.Home(), "Downloads")

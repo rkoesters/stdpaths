@@ -11,11 +11,6 @@ import (
 )
 
 func init() {
-	if dirs != nil {
-		return
-	}
-	dirs = new(userDirs)
-
 	f, err := os.Open(filepath.Join(stdpaths.UserConfig(), "user-dirs.dirs"))
 	if err != nil {
 		return

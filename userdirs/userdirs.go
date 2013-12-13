@@ -11,7 +11,7 @@ type userDirs struct {
 	Videos    string
 }
 
-var dirs *userDirs
+var dirs = new(userDirs)
 
 // Desktop returns the user's desktop directory.
 func Desktop() string {
