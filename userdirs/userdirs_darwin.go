@@ -5,18 +5,18 @@ import (
 	"path/filepath"
 )
 
-func initPersonalDirs() {
-	if cache != nil {
+func init() {
+	if dirs != nil {
 		return
 	}
-	cache = new(userDirs)
+	dirs = new(userDirs)
 
-	cache.Desktop = filepath.Join(stdpaths.Home(), "Desktop")
-	cache.Documents = filepath.Join(stdpaths.Home(), "Documents")
-	cache.Download = filepath.Join(stdpaths.Home(), "Downloads")
-	cache.Music = filepath.Join(stdpaths.Home(), "Music")
-	cache.Pictures = filepath.Join(stdpaths.Home(), "Pictures")
-	cache.Public = filepath.Join(stdpaths.Home(), "Public")
-	cache.Templates = filepath.Join(stdpaths.Home(), "Templates")
-	cache.Videos = filepath.Join(stdpaths.Home(), "Movies")
+	dirs.Desktop = filepath.Join(stdpaths.Home(), "Desktop")
+	dirs.Documents = filepath.Join(stdpaths.Home(), "Documents")
+	dirs.Download = filepath.Join(stdpaths.Home(), "Downloads")
+	dirs.Music = filepath.Join(stdpaths.Home(), "Music")
+	dirs.Pictures = filepath.Join(stdpaths.Home(), "Pictures")
+	dirs.Public = filepath.Join(stdpaths.Home(), "Public")
+	dirs.Templates = filepath.Join(stdpaths.Home(), "Templates")
+	dirs.Videos = filepath.Join(stdpaths.Home(), "Movies")
 }

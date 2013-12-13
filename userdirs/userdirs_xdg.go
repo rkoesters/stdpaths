@@ -10,11 +10,11 @@ import (
 	"strings"
 )
 
-func initPersonalDirs() {
-	if cache != nil {
+func init() {
+	if dirs != nil {
 		return
 	}
-	cache = new(userDirs)
+	dirs = new(userDirs)
 
 	f, err := os.Open(filepath.Join(stdpaths.UserConfig(), "user-dirs.dirs"))
 	if err != nil {
@@ -27,21 +27,21 @@ func initPersonalDirs() {
 		l := strings.SplitN(strings.TrimSpace(sc.Text()), "=", 2)
 		switch l[0] {
 		case "XDG_DESKTOP_DIR":
-			cache.Desktop = clean(l[1])
+			dirs.Desktop = clean(l[1])
 		case "XDG_DOCUMENTS_DIR":
-			cache.Documents = clean(l[1])
+			dirs.Documents = clean(l[1])
 		case "XDG_DOWNLOAD_DIR":
-			cache.Download = clean(l[1])
+			dirs.Download = clean(l[1])
 		case "XDG_MUSIC_DIR":
-			cache.Music = clean(l[1])
+			dirs.Music = clean(l[1])
 		case "XDG_PICTURES_DIR":
-			cache.Pictures = clean(l[1])
+			dirs.Pictures = clean(l[1])
 		case "XDG_PUBLICSHARE_DIR":
-			cache.Public = clean(l[1])
+			dirs.Public = clean(l[1])
 		case "XDG_TEMPLATES_DIR":
-			cache.Templates = clean(l[1])
+			dirs.Templates = clean(l[1])
 		case "XDG_VIDEOS_DIR":
-			cache.Videos = clean(l[1])
+			dirs.Videos = clean(l[1])
 		}
 	}
 	if sc.Err() != nil {

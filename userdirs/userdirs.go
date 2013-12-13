@@ -11,52 +11,44 @@ type userDirs struct {
 	Videos    string
 }
 
-var cache *userDirs
+var dirs *userDirs
 
 // Desktop returns the user's desktop directory.
 func Desktop() string {
-	initPersonalDirs()
-	return cache.Desktop
+	return dirs.Desktop
 }
 
 // Documents returns the user's documents directory.
 func Documents() string {
-	initPersonalDirs()
-	return cache.Documents
+	return dirs.Documents
 }
 
 // Download returns the user's download directory.
 func Download() string {
-	initPersonalDirs()
-	return cache.Download
+	return dirs.Download
 }
 
 // Music returns the user's music directory.
 func Music() string {
-	initPersonalDirs()
-	return cache.Music
+	return dirs.Music
 }
 
 // Pictures returns the user's pictures directory.
 func Pictures() string {
-	initPersonalDirs()
-	return cache.Pictures
+	return dirs.Pictures
 }
 
 // Public returns the user's public directory.
 func Public() string {
-	initPersonalDirs()
-	return cache.Public
+	return dirs.Public
 }
 
 // Templates returns the user's template directory.
 func Templates() string {
-	initPersonalDirs()
-	return cache.Templates
+	return dirs.Templates
 }
 
 // Videos returns the user's videos directory.
 func Videos() string {
-	initPersonalDirs()
-	return cache.Videos
+	return dirs.Videos
 }
