@@ -7,18 +7,24 @@ import (
 	"path/filepath"
 )
 
-const homeEnvVar = "HOME"
+const (
+	homeEnvVar = "HOME"
+
+	macCache  = "/Library/Caches"
+	macConfig = "/Library/Preferences"
+	macData   = "/Library/Application Support"
+)
 
 func lookupUserCache() string {
-	return filepath.Join(Home(), "Library/Caches")
+	return filepath.Join(Home(), macCache)
 }
 
 func lookupUserConfig() string {
-	return filepath.Join(Home(), "Library/Preferences")
+	return filepath.Join(Home(), macConfig)
 }
 
 func lookupUserData() string {
-	return filepath.Join(Home(), "Library/Application Support")
+	return filepath.Join(Home(), macData)
 }
 
 func lookupUserRuntime() string {
@@ -26,9 +32,9 @@ func lookupUserRuntime() string {
 }
 
 func lookupSystemConfig() []string {
-	return []string{"/Library/Preferences"}
+	return []string{macConfig}
 }
 
 func lookupSystemData() []string {
-	return []string{"/Library/Application Support"}
+	return []string{macData}
 }
