@@ -1,5 +1,8 @@
 package stdpaths
 
+// TODO: Mac paths are hard coded. should think about using system apis
+// in the future (go1.3 may allow linking with Objective C).
+
 import (
 	"path/filepath"
 )
