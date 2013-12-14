@@ -10,15 +10,15 @@ import (
 const homeEnvVar = "HOME"
 
 func lookupUserCache() string {
-	return filepath.Join(Home(), "Library", "Caches")
+	return filepath.Join(Home(), "Library/Caches")
 }
 
 func lookupUserConfig() string {
-	return filepath.Join(Home(), "Library", "Preferences")
+	return filepath.Join(Home(), "Library/Preferences")
 }
 
 func lookupUserData() string {
-	return filepath.Join(Home(), "Library", "Application Support")
+	return filepath.Join(Home(), "Library/Application Support")
 }
 
 func lookupUserRuntime() string {
@@ -26,11 +26,9 @@ func lookupUserRuntime() string {
 }
 
 func lookupSystemConfig() []string {
-	// TODO: I am not sure if this is correct
-	return []string{}
+	return []string{"/Library/Preferences"}
 }
 
 func lookupSystemData() []string {
-	// TODO: I am not sure if this is correct
-	return []string{}
+	return []string{"/Library/Application Support"}
 }
