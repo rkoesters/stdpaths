@@ -30,7 +30,7 @@ func lookupUserData() string {
 	if len(dir) != 0 {
 		return dir
 	}
-	return filepath.Join(Home(), ".local", "share")
+	return filepath.Join(Home(), ".local/share")
 }
 
 func lookupUserRuntime() string {
